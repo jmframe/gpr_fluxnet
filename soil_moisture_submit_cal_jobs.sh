@@ -1,0 +1,13 @@
+#!/bin/bash -f
+sbatch ./job_scripts/cal_scripts/soil_moisture_cal_1.slurm
+sbatch ./job_scripts/cal_scripts/soil_moisture_cal_2.slurm
+sbatch ./job_scripts/cal_scripts/soil_moisture_cal_4.slurm
+sbatch ./job_scripts/cal_scripts/soil_moisture_cal_5.slurm
+sbatch ./job_scripts/cal_scripts/soil_moisture_cal_7.slurm
+sbatch ./job_scripts/cal_scripts/soil_moisture_cal_11.slurm
+sbatch ./job_scripts/cal_scripts/soil_moisture_cal_12.slurm
+sbatch ./job_scripts/cal_scripts/soil_moisture_cal_13.slurm
+sbatch ./job_scripts/cal_scripts/soil_moisture_cal_14.slurm
+sbatch ./job_scripts/cal_scripts/soil_moisture_cal_16.slurm
+sbatch ./job_scripts/cal_scripts/soil_moisture_cal_17.slurm
+sbatch ./job_scripts/cal_scripts/soil_moisture_cal_18.slurm
