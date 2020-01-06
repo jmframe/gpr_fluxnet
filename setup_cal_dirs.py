@@ -13,21 +13,20 @@ from os.path import dirname as up
 import sys
 from io import StringIO
 
-# Since this program will override the calibration files, 
+# Since this program will override the initialization files, 
 # be careful running it. Check to make sure you meant to run.
-continue_setup = str(input('Are you sure you want to run this setup? \
-It may over override existing calibration files!\n'))
+print('this setup will override existing calibration files!')
+continue_setup = str(input('Are you sure?'))
 if not continue_setup in ['yes', 'Yes', 'Y', 'y', 'continue', 'Continue', 'affirmative']:
-    print('Exiting program based on your answer. \n')
+    print('Exiting program based on your answer.')
     sys.exit()
-
-# Since this program will override the calibration files, 
+# Since this program will override the initialization files, 
 # be careful running it. Check to make sure you meant to run.
-continue_setup = str(input('Are you sure that you have generated the correct \
-Forcing and Observation data files?\n \
-You should have ran makeFiles.py in /data/pals/site_data\n'))
+print('You have generated the correct Forcing and Observation data files?') 
+print('You should have ran makeFiles.py in /data/pals/site_data')
+continue_setup = str(input('Are you sure?')) 
 if not continue_setup in ['yes', 'Yes', 'Y', 'y', 'continue', 'Continue', 'affirmative']:
-    print('Exiting program based on your answer. \n')
+    print('Exiting program based on your answer.')
     sys.exit()
 
 # --- Experiment Setup ---------------------------------------------
@@ -38,8 +37,8 @@ print('setting up calibration directories')
 exp_type = 'soil_moisture'
 
 # load site/year combinations
-sites = np.array([1, 2, 4, 5, 7, 11, 12, 13, 14, 16, 17, 18])
-Ns = 12
+sites = np.genfromtxt('data/pals/Site1_Years.txt', delimiter = ' ')
+Ns = sites.shape[0]
 with np.printoptions(precision=2, suppress=True):
     print('sites')
     print(sites)
@@ -59,13 +58,16 @@ cmd = 'cp setup_dir/cleanCalFiles.py ' + exp_type + '/cal _dirs/'
 for s in range(0, Ns):
 
     # get sites and year, need in string
-    S = str(int(sites[s]))
+    S = str(int(sites[s,0]))
+    Y = str(int(sites[s,1]))
+    siteyear = S + '_' + Y
 
     # screen report
-    print('Setting up run directory for site = ' + S )
+    print('Setting up run directory for site = %d, year = %d, ' % (sites[s,0],  sites[s,1]))
+    print('siteyear: ', siteyear)
 
     # working directory
-    wdir = exp_type + '/cal_dirs/run_' + S
+    wdir = exp_type + '/cal_dirs/run_' + siteyear
 
     # delete runtime directory for the site
     cmd = 'rm -rf ' + wdir
@@ -105,9 +107,9 @@ for s in range(0, Ns):
     os.system(cmd)
 
     # Large data files. Forcing and observation.
-    cmd = 'mv data/pals/site_data/forcing_' + S + '_train.txt ' + wdir + '/forcing.txt'  
+    cmd = 'ln -s ../../../data/pals/site_data/forcing_' + S +'.txt '+ wdir + '/forcing.txt'  
     os.system(cmd)
-    cmd = 'mv data/pals/site_data/obs_' + S + '_train.txt ' + wdir + '/obs.txt'  
+    cmd = 'ln -s ../../../data/pals/site_data/obs_' + S +'_'+ Y + '_train.txt ' + wdir + '/obs.txt'  
     os.system(cmd)
 
     # site-specific noah-mp input files
@@ -121,9 +123,9 @@ for s in range(0, Ns):
     # get site information
     forcing = np.genfromtxt(wdir + '/forcing.txt')
     pals_sites = np.genfromtxt('data/pals/Sites.txt')
-    lat = pals_sites[int(sites[s])-1,0]
-    lon = pals_sites[int(sites[s])-1,1]
-    offset = pals_sites[int(sites[s])-1,2]
+    lat = pals_sites[int(sites[s,0])-1,0]
+    lon = pals_sites[int(sites[s,0])-1,1]
+    offset = pals_sites[int(sites[s,0])-1,2]
 
     # site-specific noah-mp input files - number of timesteps
     Nt = forcing.shape[0]
@@ -153,8 +155,6 @@ for s in range(0, Ns):
         F.write(startdate)
 
     # site-specific noah-mp input files - initial states
-    cmd = 'cp initialize/site_data/soil_init_' + S + '.txt ' + wdir + '/soil_init.txt'
-    os.system(cmd)
-    cmd = 'cp initialize/site_data/plant_init_' + S + '.txt ' + wdir + '/plant_init.txt'
+    cmd = 'cp ../gpr_fluxnet/initialize/site_data/soil_init_' + S + '.txt ' + wdir + '/soil_init.txt'
     os.system(cmd)
 # --- End Script ---------------------------------------------------

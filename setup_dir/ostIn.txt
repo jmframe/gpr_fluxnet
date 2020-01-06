@@ -1,0 +1,142 @@
+#Configuration File for Ostrich Program
+
+# Options for ProgramType
+#============================
+# GeneticAlgorithm
+# BinaryGeneticAlgorithm
+# ShuffledComplexEvolution
+# BisectionAlgorithm
+# SamplingAlgorithm
+# ParticleSwarm
+# APPSO
+# PSO-GML
+# SimulatedAnnealing
+# DiscreteSimulatedAnnealing
+# VanderbiltSimulatedAnnealing
+# Levenberg-Marquardt
+# GML-MS
+# Powell
+# Steepest-Descent
+# Fletcher-Reeves
+# RegressionStatistics
+# Jacobian
+# Hessian
+# Gradient
+# ModelEvaluation
+# GridAlgorithm
+# DDS
+# DDSAU
+# ParallelDDS
+# DiscreteDDS
+# GLUE
+# RejectionSampler
+# MetropolisSampler
+# SMOOTH
+# PADDS
+# ParaPADDS
+# BEERS
+
+# essential variables
+ProgramType 			ShuffledComplexEvolution
+ModelExecutable			./noah_mp.exe
+ModelSubdir 			proc
+ObjectiveFunction 		GCOP
+
+# optional variables
+PreserveModelOutput 		no
+OstrichWarmStart 		no
+NumDigitsOfPrecision 		8
+TelescopingStrategy		none
+RandomSeed 			101
+OnObsError 			quit
+BoxCoxTransformation 		1
+CheckSensitivities 		no
+ModelOutputRedirectionFile 	ModelOutput.stdout
+
+BeginFilePairs    
+cal_parms.tpl	cal_parms.txt
+EndFilePairs
+
+BeginExtraFiles
+da_flag.txt
+forcing.txt
+init.txt
+lat_lon.txt
+num_times.txt
+parms.txt
+plant_init.txt
+soil_init.txt
+startdate.txt
+tbot.txt
+time_parms.txt
+obs.txt
+EndExtraFiles
+
+BeginExtraDirs
+EndExtraDirs
+
+#Parameter Specification
+BeginParams
+#parameter	init.	low	high	tx_in  tx_ost	tx_out
+Z0MVT		extract 0.06	1.10	none	none	none
+HVT		extract	1.00	20.0	none	none	none
+HVB		extract	0.01	0.90	none	none	none
+LTOVRC		extract	0.01	1.50	none	none	none
+DILEFW		extract	0.01	10.0	none	none	none
+RMF25		extract	0.01	10.0	none	none	none
+SLA		extract	1.00	120.	none	none	none
+VCMX25		extract	0.01	100.	none	none	none
+QE25		extract	0.01	1.00	none	none	none
+BEXP		extract	1.00	20.0	none	none	none
+DKSAT		extract	-12.0	-0.1	none	none	none
+SMCMAX		extract	0.30	0.70	none	none	none
+SMCREF		extract	0.33	0.99	none	none	none
+SMCWLT		extract	0.01	0.99	none	none	none
+EndParams
+
+BeginObservations
+EndObservations
+
+BeginResponseVars
+# name	file			key		line	col	token	augmented?
+MSE1	noahmp_objfun.out	OST_NULL	2	1	','	yes
+EndResponseVars
+
+BeginGCOP
+CostFunction MSE1	
+PenaltyFunction   APM
+EndGCOP
+
+#BeginMathAndStats
+#DiffType    			forward
+#DiffRelIncrement    		0.001
+##Default
+#AllStats
+##NoStats
+##StdDev
+##StdErr
+##CorrCoeff
+##Beale
+##Linssen
+##CooksD
+##DFBETAS
+##Confidence
+##Sensitivity
+#EndMathAndStats
+
+BeginSCEUA
+Budget                  100000 
+LoopStagnationCriteria  10
+PctChangeCriteria       0.001
+PopConvCriteria         0.01
+NumComplexes            15
+NumPointsPerComplex     31
+NumPointsPerSubComplex  10
+NumEvolutionSteps       31  
+MinNumberOfCOmplexes    10
+UseInitialPoint         yes
+EndSCEUA
+
+
+
+

@@ -1,0 +1,48 @@
+  SCE CONTROL     MAX TRIALS     REQUIRED IMPROVEMENT     RANDOM
+   PARAMETER        ALLOWED      PERCENT    NO. LOOPS      SEED
+  -----------     ----------     -------    ---------     ------
+  USER SPEC.      10000             1.00    5             101   
+
+
+                  SCE ALGORITHM CONTROL PARAMETERS
+                  ================================
+
+  NUMBER OF     POINTS PER     POINTS IN      POINTS PER    EVOL. STEPS
+  COMPLEXES      COMPLEX      INI. POPUL.     SUB-COMPLX    PER COMPLEX
+  ---------     ----------    -----------     ----------    -----------
+  3             19            57              10            19         
+
+
+               COMPLX NO.     MIN COMPLEX     INI. POINT
+               REDUCTION      NO. ALLOWED      INCLUDED
+               ----------     -----------     ----------
+               NO             3               YES       
+
+
+        INITIAL PARAMETER VALUES AND PARAMETER BOUNDS
+        =============================================
+
+  PARAMETER     INITIAL VALUE     LOWER BOUND     UPPER BOUND
+  ---------     -------------     -----------     -----------
+  Z0MVT                 0.788           0.060           1.100
+  HVT                   6.862           1.000          20.000
+  HVB                   0.256           0.010           0.900
+  LTOVRC                0.409           0.010           1.500
+  DILEFW                0.211           0.010          10.000
+  RMF25                 8.149           0.010          10.000
+  SLA                  82.907           1.000         120.000
+  VCMX25               87.896           0.010         100.000
+  QE25                  0.148           0.010           1.000
+  BEXP                 16.036           1.000          20.000
+  DKSAT                -7.309          -8.000          -4.000
+  SMCDRY                0.067           0.010           0.150
+  SMCMAX                0.618           0.200           0.700
+  SMCREF                0.427           0.330           0.900
+  SMCWLT                0.534           0.000           0.900
+
+
+  ==================================================
+  ENTER THE SHUFFLED COMPLEX EVOLUTION GLOBAL SEARCH
+  ==================================================
+
+
