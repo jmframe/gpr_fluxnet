@@ -1,0 +1,13 @@
+*.onestep
+*.out
+*_start
+*_pseudo
+*.dat
+*.bin
+*.ck
+*.err
+*.out
+train
+/reports
+*.log
+
