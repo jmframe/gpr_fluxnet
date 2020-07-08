@@ -22,7 +22,7 @@ exp_type = 'soil_moisture'
 Nprocs  = 1
  
 # load site/year combinations
-sites = np.array([1, 2, 4, 5, 7, 11, 12, 13, 14, 16, 17, 18])
+sites = np.genfromtxt('data/pals/Site_Years.txt', delimiter = ' ')
 Ns = sites.shape[0]
 
 # open submit script file for writing
@@ -36,7 +36,7 @@ with open(fname, 'w') as F:
     for s in range(0,Ns):
 
         # job script file name
-        jname = './job_scripts/cal_scripts/' + exp_type + '_cal_' + str(int(sites[s])) + '.slurm'
+        jname = './job_scripts/cal_scripts/' + exp_type + '_cal_' + str(int(sites[s,0])) + '_' + str(int(sites[s,1])) + '.slurm'
  
         # remove old copy of this job script
         #cmd = '/bin/rm -f ' + jname
@@ -49,7 +49,10 @@ with open(fname, 'w') as F:
         cmd = 'sed -i "s/exp_type/' + exp_type + '/g" ' + jname
         os.system(cmd)
 
-        cmd = 'sed -i "s/site/' + str(int(sites[s])) + '/g" ' + jname
+        cmd = 'sed -i "s/site/' + str(int(sites[s,0])) + '/g" ' + jname
+        os.system(cmd)
+
+        cmd = 'sed -i "s/year/' + str(int(sites[s,1])) + '/g" ' + jname
         os.system(cmd)
 
         cmd = 'sed -i "s/eletter/sm/g" ' + jname

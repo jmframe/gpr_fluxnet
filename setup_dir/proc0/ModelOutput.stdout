@@ -1,0 +1,14 @@
+At line 727 of file src/objfun.f90 (unit = 14, file = 'num_times.txt')
+Fortran runtime error: Bad integer for item 1 in list input
+
+Error termination. Backtrace:
+#0  0x2b0232baea7a in read_integer
+	at ../../../libgfortran/io/list_read.c:1099
+#1  0x2b0232bb1aea in list_formatted_read_scalar
+	at ../../../libgfortran/io/list_read.c:2170
+#2  0x40b4b2 in ???
+#3  0x40bf67 in ???
+#4  0x4015cc in ???
+#5  0x2b023357b444 in ???
+#6  0x4015fc in ???
+#7  0xffffffffffffffff in ???
