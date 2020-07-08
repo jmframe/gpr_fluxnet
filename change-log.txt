@@ -1,0 +1,13 @@
+Changes made to the objfun.F90 file in the gpr-noah directory, 14 November 2019
+- Change number of passed arguments
+- Change order of lagged inputs
+- Changing back the order of lagged inputs, this was the problem.
+- rech and deeprech added back to state read/write. Also initialize obs_full
+- removed them, because I was getting that bad value error.
+- Read in full observation record, will be used to pin out-of-sample year
+- use name as input to read/write state, change name to state.init
+- Converting date year to character string, printing output to test.
+- during training set the out-of-sample year to observation.
+- move gpr call in logic to prevent the call when training wet/dry only
+- cleanig the logic so it doesn't test for zeros twice
+- Making sure the out-of-sample year gets set to the observation.
