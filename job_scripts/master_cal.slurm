@@ -12,8 +12,8 @@ ulimit -s unlimited
 
 # modules
 module purge
-module load comp/intel-16.0.3.210
-module load mpi/impi-18.0.3.222
+module load comp/intel/19.1.0.166
+module load mpi/impi/20.0.0.166
  
 # linking
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/discover/nobackup/projects/lis/libs/netcdf/4.3.3.1_intel-14.0.3.174_sp3/lib

@@ -11,3 +11,6 @@ Changes made to the objfun.F90 file in the gpr-noah directory, 14 November 2019
 - move gpr call in logic to prevent the call when training wet/dry only
 - cleanig the logic so it doesn't test for zeros twice
 - Making sure the out-of-sample year gets set to the observation.
+
+July 2020
+- setting up whole working directory to be consistend with new SLES
