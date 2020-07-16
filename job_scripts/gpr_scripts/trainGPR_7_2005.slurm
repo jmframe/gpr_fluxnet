@@ -1,10 +1,10 @@
 #!/bin/bash -x
-#SBATCH --job-name="2-2003-spgp"
+#SBATCH --job-name="7-2005-spgp"
 #SBATCH --account=s2027
 #SBATCH --time=12:00:00
 #SBATCH --constraint=hasw
-#SBATCH --output="/discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-mpi/2_2003/slurm.out"
-#SBATCH --error="/discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-mpi/2_2003/slurm.err"
+#SBATCH --output="/discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-mpi/7_2005/slurm.out"
+#SBATCH --error="/discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-mpi/7_2005/slurm.err"
 #SBATCH --ntasks=84
 
 # memory
@@ -31,12 +31,12 @@ SHhi=16
 dSH=2
 # Stuff that will be used in each instance of training
 pythonpath="/discover/nobackup/jframe/anaconda3/bin/python"
-siteyear="2_2003"
+siteyear="7_2005"
 projdir="/discover/nobackup/jframe/gpr_fluxnet/"
 projdirsm=${projdir}"soil_moisture/"
-mpidir=${projdirsm}"gpr-mpi/2_2003/"
-noahtraindir=${projdirsm}"gpr-noah/train_2_2003/"
-noahtestdir=${projdirsm}"gpr-noah/test_2_2003/"
+mpidir=${projdirsm}"gpr-mpi/7_2005/"
+noahtraindir=${projdirsm}"gpr-noah/train_7_2005/"
+noahtestdir=${projdirsm}"gpr-noah/test_7_2005/"
 repdir=${mpidir}"reports/"
 # Values for finding the best gpr.
 lowrmse=999

@@ -1,4 +1,4 @@
-#!/gpfsm/dulocal/sles11/other/SLES11.3/miniconda3/2019.03_py3.7/2019-05-15/bin/python
+#!/discover/nobackup/jframe/anaconda3/bin/python
 # This is a script to generate slurm files for training the GPR for soil moisture. 
 
 import numpy as np

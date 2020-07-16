@@ -30,7 +30,7 @@ SHlow=8
 SHhi=16
 dSH=2
 # Stuff that will be used in each instance of training
-pythonpath="/gpfsm/dulocal/sles11/other/SLES11.3/miniconda3/2019.03_py3.7/2019-05-15/bin/python"
+pythonpath="/discover/nobackup/jframe/anaconda3/bin/python"
 siteyear="siite_yeear"
 projdir="/discover/nobackup/jframe/gpr_fluxnet/"
 projdirsm=${projdir}"soil_moisture/"

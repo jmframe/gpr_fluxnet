@@ -11,29 +11,10 @@
 ulimit -s unlimited
 
 source /usr/share/modules/init/bash
-#-------------------------------------------------------
-# NASA  Advanced Software Technology Group
-# Configure script for FEWSNET Operational run with LIS6
-#-------------------------------------------------------
 
 module purge
-module load comp/intel-14.0.3.174
-module load mpi/impi-5.0.3.048
-module load lib/mkl-10.1.2.024
-module load other/comp/gcc-4.8.1
-module load other/cmake-3.8.2
-
-#-------------
-# GPR Settings
-#-------------
-export CXX=mpiicpc
-export CC=mpiicc
-export GXX_NAME=g++
-export FORTRAN_HOME=/usr/local/intel/Composer/composer_xe_2013_sp1.3.174/compiler/lib/intel64
-export BLAS_HOME=/usr/local/other/SLES11/BLAS/intel-14.0.3.174
-export LAPACK_HOME=/usr/local/other/SLES11/lapack/3.5.0/intel-14.0.3.174/lib
-export SCALAPACK_HOME=/usr/local/other/SLES11/ScaLAPACK/2.0.2/intel-14.0.3.174/lib
-export GSL_HOME=/usr/local/other/SLES11/gsl/2.4/intel-14.0.3.174
+module load comp/intel/19.1.0.166
+module load mpi/impi/20.0.0.166
 
 # Dimensions of the GPR
 dwet=18
@@ -49,7 +30,7 @@ SHlow=8
 SHhi=16
 dSH=2
 # Stuff that will be used in each instance of training
-pythonpath="/gpfsm/dulocal/sles11/other/SLES11.3/miniconda3/2019.03_py3.7/2019-05-15/bin/python"
+pythonpath="/discover/nobackup/jframe/anaconda3/bin/python"
 siteyear="21_2017"
 projdir="/discover/nobackup/jframe/gpr_fluxnet/"
 projdirsm=${projdir}"soil_moisture/"
