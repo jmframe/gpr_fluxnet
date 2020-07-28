@@ -1,0 +1,11 @@
+# modules
+module purge
+module load comp/gcc/8.3.0  cmake/3.17.0 
+module load comp/intel/19.1.0.166 #mpi/impi/19.1.0.166
+# configuration
+#export CXX=mpiicpc
+export CXX=icpc
+#libraries
+export GSL_HOME=/usr/local/other/gsl/2.6
+#export GXX_NAME=/usr/local/other/gcc/10.1.0/bin/gcc
+export GXX_NAME=/usr/local/other/gcc/8.3.0/bin/gcc

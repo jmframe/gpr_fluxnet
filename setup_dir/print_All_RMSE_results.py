@@ -1,4 +1,4 @@
-#!/gpfsm/dulocal/sles11/other/SLES11.3/miniconda3/2019.03_py3.7/2019-05-15/bin/python
+#!/discover/nobackup/jframe/anaconda3/bin/python
 
 import numpy as np
 import csv
@@ -40,17 +40,22 @@ for S, Y in siteyears:
             i+=1
         Observed = np.array(Observed)
     
-    with open(gpr_dir+'output.noah', 'r') as calFile:
-        calData = csv.reader(calFile, delimiter=' ', skipinitialspace=True)
-        for calRow in calData:
-            Cal.append(float(calRow[10]))
-        Cal = np.array(Cal)
+    try:
+        with open(gpr_dir+'output.noah', 'r') as calFile:
+            calData = csv.reader(calFile, delimiter=' ', skipinitialspace=True)
+            for calRow in calData:
+                Cal.append(float(calRow[10]))
+            Cal = np.array(Cal)
     
-    with open(gpr_dir+'output.gpr', 'r') as gprFile:
-        gprData = csv.reader(gprFile, delimiter=' ', skipinitialspace=True)
-        for gprRow in gprData:
-            GPR.append(float(gprRow[10]))
-        GPR = np.array(GPR)
+        with open(gpr_dir+'output.gpr', 'r') as gprFile:
+            gprData = csv.reader(gprFile, delimiter=' ', skipinitialspace=True)
+            for gprRow in gprData:
+                GPR.append(float(gprRow[10]))
+            GPR = np.array(GPR)
+    except:
+        print("Skipping "+siteyear)
+        print("model output not available")
+        continue
     
     #################  Calculate some statistics  ####
     lIS = len(inSample)

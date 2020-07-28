@@ -1,0 +1,7 @@
+# The fortran modules provided by this target.
+provides
+ comm.mod
+ cstring_class.mod
+ gpr_class.mod
+ option_class.mod
+ timer_class.mod

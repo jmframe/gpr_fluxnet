@@ -1,0 +1,13 @@
+# The fortran modules provided by this target.
+provides
+ kwm_date_utilities.mod
+ module_model_constants.mod
+ module_sf_noahlsm.mod
+ module_sf_noahmp_groundwater.mod
+ module_sf_noahmplsm.mod
+ module_sf_noahutl.mod
+ noahmp_globals.mod
+ noahmp_rad_parameters.mod
+ noahmp_routines.mod
+ noahmp_veg_parameters.mod
+ type_decs.mod
