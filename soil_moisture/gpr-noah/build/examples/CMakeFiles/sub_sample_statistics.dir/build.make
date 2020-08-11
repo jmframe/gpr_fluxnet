@@ -77,15 +77,15 @@ include examples/CMakeFiles/sub_sample_statistics.dir/flags.make
 examples/CMakeFiles/sub_sample_statistics.dir/sub_sample_statistics.cpp.o: examples/CMakeFiles/sub_sample_statistics.dir/flags.make
 examples/CMakeFiles/sub_sample_statistics.dir/sub_sample_statistics.cpp.o: ../examples/sub_sample_statistics.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object examples/CMakeFiles/sub_sample_statistics.dir/sub_sample_statistics.cpp.o"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/examples && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sub_sample_statistics.dir/sub_sample_statistics.cpp.o -c /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/examples/sub_sample_statistics.cpp
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/examples && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sub_sample_statistics.dir/sub_sample_statistics.cpp.o -c /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/examples/sub_sample_statistics.cpp
 
 examples/CMakeFiles/sub_sample_statistics.dir/sub_sample_statistics.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sub_sample_statistics.dir/sub_sample_statistics.cpp.i"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/examples && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/examples/sub_sample_statistics.cpp > CMakeFiles/sub_sample_statistics.dir/sub_sample_statistics.cpp.i
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/examples && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/examples/sub_sample_statistics.cpp > CMakeFiles/sub_sample_statistics.dir/sub_sample_statistics.cpp.i
 
 examples/CMakeFiles/sub_sample_statistics.dir/sub_sample_statistics.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sub_sample_statistics.dir/sub_sample_statistics.cpp.s"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/examples && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/examples/sub_sample_statistics.cpp -o CMakeFiles/sub_sample_statistics.dir/sub_sample_statistics.cpp.s
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/examples && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/examples/sub_sample_statistics.cpp -o CMakeFiles/sub_sample_statistics.dir/sub_sample_statistics.cpp.s
 
 # Object files for target sub_sample_statistics
 sub_sample_statistics_OBJECTS = \

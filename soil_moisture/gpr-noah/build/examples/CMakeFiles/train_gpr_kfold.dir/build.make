@@ -77,15 +77,15 @@ include examples/CMakeFiles/train_gpr_kfold.dir/flags.make
 examples/CMakeFiles/train_gpr_kfold.dir/train_gpr_kfold.cpp.o: examples/CMakeFiles/train_gpr_kfold.dir/flags.make
 examples/CMakeFiles/train_gpr_kfold.dir/train_gpr_kfold.cpp.o: ../examples/train_gpr_kfold.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object examples/CMakeFiles/train_gpr_kfold.dir/train_gpr_kfold.cpp.o"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/examples && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/train_gpr_kfold.dir/train_gpr_kfold.cpp.o -c /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/examples/train_gpr_kfold.cpp
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/examples && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/train_gpr_kfold.dir/train_gpr_kfold.cpp.o -c /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/examples/train_gpr_kfold.cpp
 
 examples/CMakeFiles/train_gpr_kfold.dir/train_gpr_kfold.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/train_gpr_kfold.dir/train_gpr_kfold.cpp.i"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/examples && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/examples/train_gpr_kfold.cpp > CMakeFiles/train_gpr_kfold.dir/train_gpr_kfold.cpp.i
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/examples && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/examples/train_gpr_kfold.cpp > CMakeFiles/train_gpr_kfold.dir/train_gpr_kfold.cpp.i
 
 examples/CMakeFiles/train_gpr_kfold.dir/train_gpr_kfold.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/train_gpr_kfold.dir/train_gpr_kfold.cpp.s"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/examples && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/examples/train_gpr_kfold.cpp -o CMakeFiles/train_gpr_kfold.dir/train_gpr_kfold.cpp.s
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/examples && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/examples/train_gpr_kfold.cpp -o CMakeFiles/train_gpr_kfold.dir/train_gpr_kfold.cpp.s
 
 # Object files for target train_gpr_kfold
 train_gpr_kfold_OBJECTS = \

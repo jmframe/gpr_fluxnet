@@ -1,4 +1,4 @@
-#!/gpfsm/dulocal/sles11/other/SLES11.3/miniconda3/2019.03_py3.7/2019-05-15/bin/python
+#!/discover/nobackup/jframe/anaconda3/bin/python
 # This is a script to generate directories for 
 # Calibrating the BLODGETT station noah-mp runs.
 # I am copying this from Grey's Matlab script.
@@ -37,7 +37,7 @@ print('setting up calibration directories')
 exp_type = 'soil_moisture'
 
 # load site/year combinations
-sites = np.genfromtxt('data/pals/Site1_Years.txt', delimiter = ' ')
+sites = np.genfromtxt('data/pals/Site_Years.txt', delimiter = ' ')
 Ns = sites.shape[0]
 with np.printoptions(precision=2, suppress=True):
     print('sites')

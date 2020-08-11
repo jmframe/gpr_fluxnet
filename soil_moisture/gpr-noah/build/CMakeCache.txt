@@ -31,7 +31,7 @@ CMAKE_BUILD_TYPE:STRING=
 CMAKE_COLOR_MAKEFILE:BOOL=ON
 
 //CXX compiler
-CMAKE_CXX_COMPILER:FILEPATH=/usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc
+CMAKE_CXX_COMPILER:FILEPATH=/usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc
 
 //Flags used by the CXX compiler during all build types.
 CMAKE_CXX_FLAGS:STRING=
@@ -221,7 +221,7 @@ GaussianProcessRegression_BINARY_DIR:STATIC=/discover/nobackup/jframe/gpr_fluxne
 GaussianProcessRegression_SOURCE_DIR:STATIC=/discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah
 
 //No help, variable specified on the command line.
-MPI_DISABLED:UNINITIALIZED=yes
+MPI_DISABLED:UNINITIALIZED=true
 
 //Path to a program.
 XIAR:FILEPATH=/usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/xiar

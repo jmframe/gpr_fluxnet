@@ -77,15 +77,15 @@ include regression_test/CMakeFiles/regression_test.dir/flags.make
 regression_test/CMakeFiles/regression_test.dir/regression_test.cpp.o: regression_test/CMakeFiles/regression_test.dir/flags.make
 regression_test/CMakeFiles/regression_test.dir/regression_test.cpp.o: ../regression_test/regression_test.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object regression_test/CMakeFiles/regression_test.dir/regression_test.cpp.o"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/regression_test && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/regression_test.dir/regression_test.cpp.o -c /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/regression_test/regression_test.cpp
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/regression_test && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/regression_test.dir/regression_test.cpp.o -c /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/regression_test/regression_test.cpp
 
 regression_test/CMakeFiles/regression_test.dir/regression_test.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/regression_test.dir/regression_test.cpp.i"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/regression_test && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/regression_test/regression_test.cpp > CMakeFiles/regression_test.dir/regression_test.cpp.i
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/regression_test && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/regression_test/regression_test.cpp > CMakeFiles/regression_test.dir/regression_test.cpp.i
 
 regression_test/CMakeFiles/regression_test.dir/regression_test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/regression_test.dir/regression_test.cpp.s"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/regression_test && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/regression_test/regression_test.cpp -o CMakeFiles/regression_test.dir/regression_test.cpp.s
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/regression_test && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/regression_test/regression_test.cpp -o CMakeFiles/regression_test.dir/regression_test.cpp.s
 
 # Object files for target regression_test
 regression_test_OBJECTS = \

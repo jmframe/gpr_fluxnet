@@ -1,4 +1,4 @@
-#!/gpfsm/dulocal/sles11/other/SLES11.3/miniconda3/2019.03_py3.7/2019-05-15/bin/python
+#!/discover/nobackup/jframe/anaconda3/bin/python
 
 # Cycle through the calibration folders and remove unnessessary files. 
 # Hint: most files will be removed. 

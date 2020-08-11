@@ -1,4 +1,4 @@
-#!/gpfsm/dulocal/sles11/other/SLES11.3/miniconda3/2019.03_py3.7/2019-05-15/bin/python
+#!/discover/nobackup/jframe/anaconda3/bin/python
 # This is a script to generate directories for Data Assimilation 
 
 import numpy as np
@@ -59,7 +59,7 @@ for s in range(0, Ns):
     print('siteyear: ', siteyear)
 
     # working directory
-    wdir = exp_type + '/da_dirs/da_' + siteyear
+    wdir = exp_type + '/da_dirs/' + siteyear
 
     # delete runtime directory for the site
     cmd = 'rm -rf ' + wdir
@@ -110,7 +110,7 @@ for s in range(0, Ns):
     os.system(cmd) 
 
     # get calibrated parameter VALUES from proc0
-    cmd = 'cp soil_moisture/cal_dirs/run_'+S+'_'+Y+'/proc0/cal_parms.txt soil_moisture/init_dirs/run_'+S+'_'+Y+'/cal_parms.txt'
+    cmd = 'cp soil_moisture/cal_dirs/run_'+S+'_'+Y+'/proc0/cal_parms.txt soil_moisture/da_dirs/'siteyear+'/cal_parms.txt'
     os.system(cmd)
 
     # get site information
@@ -158,8 +158,8 @@ for s in range(0, Ns):
     # Python scripts to run the initialization
 #    cmd = 'cp setup_dir/initialize.slurm ' + wdir + '/initialize.slurm' 
 #    os.system(cmd)
-    cmd = 'cp setup_dir/save_obs_output_sm.py ' + wdir + '/save_obs_output_sm.py' 
-    os.system(cmd)
+#    cmd = 'cp setup_dir/save_obs_output_sm.py ' + wdir + '/save_obs_output_sm.py' 
+#    os.system(cmd)
     cmd = 'cp setup_dir/plot_init_sm.py ' + wdir + '/plot_init_sm.py' 
     os.system(cmd)
 #    cmd = 'cp setup_dir/plot_SM_assimilated.py ' + wdir + '/plot_SM_assimilated.py' 

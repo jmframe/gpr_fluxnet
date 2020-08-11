@@ -77,15 +77,15 @@ include framework/CMakeFiles/matrix_utils.dir/flags.make
 framework/CMakeFiles/matrix_utils.dir/comm_serial.cpp.o: framework/CMakeFiles/matrix_utils.dir/flags.make
 framework/CMakeFiles/matrix_utils.dir/comm_serial.cpp.o: ../framework/comm_serial.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object framework/CMakeFiles/matrix_utils.dir/comm_serial.cpp.o"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/matrix_utils.dir/comm_serial.cpp.o -c /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/comm_serial.cpp
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/matrix_utils.dir/comm_serial.cpp.o -c /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/comm_serial.cpp
 
 framework/CMakeFiles/matrix_utils.dir/comm_serial.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/matrix_utils.dir/comm_serial.cpp.i"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/comm_serial.cpp > CMakeFiles/matrix_utils.dir/comm_serial.cpp.i
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/comm_serial.cpp > CMakeFiles/matrix_utils.dir/comm_serial.cpp.i
 
 framework/CMakeFiles/matrix_utils.dir/comm_serial.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/matrix_utils.dir/comm_serial.cpp.s"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/comm_serial.cpp -o CMakeFiles/matrix_utils.dir/comm_serial.cpp.s
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/comm_serial.cpp -o CMakeFiles/matrix_utils.dir/comm_serial.cpp.s
 
 framework/CMakeFiles/matrix_utils.dir/comm_mod.F90.o: framework/CMakeFiles/matrix_utils.dir/flags.make
 framework/CMakeFiles/matrix_utils.dir/comm_mod.F90.o: ../framework/comm_mod.F90
@@ -103,15 +103,15 @@ framework/CMakeFiles/matrix_utils.dir/comm_mod.F90.s: cmake_force
 framework/CMakeFiles/matrix_utils.dir/timer_extern_C_routines.cpp.o: framework/CMakeFiles/matrix_utils.dir/flags.make
 framework/CMakeFiles/matrix_utils.dir/timer_extern_C_routines.cpp.o: ../framework/timer_extern_C_routines.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object framework/CMakeFiles/matrix_utils.dir/timer_extern_C_routines.cpp.o"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/matrix_utils.dir/timer_extern_C_routines.cpp.o -c /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/timer_extern_C_routines.cpp
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/matrix_utils.dir/timer_extern_C_routines.cpp.o -c /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/timer_extern_C_routines.cpp
 
 framework/CMakeFiles/matrix_utils.dir/timer_extern_C_routines.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/matrix_utils.dir/timer_extern_C_routines.cpp.i"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/timer_extern_C_routines.cpp > CMakeFiles/matrix_utils.dir/timer_extern_C_routines.cpp.i
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/timer_extern_C_routines.cpp > CMakeFiles/matrix_utils.dir/timer_extern_C_routines.cpp.i
 
 framework/CMakeFiles/matrix_utils.dir/timer_extern_C_routines.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/matrix_utils.dir/timer_extern_C_routines.cpp.s"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/timer_extern_C_routines.cpp -o CMakeFiles/matrix_utils.dir/timer_extern_C_routines.cpp.s
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/timer_extern_C_routines.cpp -o CMakeFiles/matrix_utils.dir/timer_extern_C_routines.cpp.s
 
 framework/CMakeFiles/matrix_utils.dir/timer_wrapper_module.F90.o: framework/CMakeFiles/matrix_utils.dir/flags.make
 framework/CMakeFiles/matrix_utils.dir/timer_wrapper_module.F90.o: ../framework/timer_wrapper_module.F90
@@ -129,41 +129,41 @@ framework/CMakeFiles/matrix_utils.dir/timer_wrapper_module.F90.s: cmake_force
 framework/CMakeFiles/matrix_utils.dir/scalapack_matrix.cpp.o: framework/CMakeFiles/matrix_utils.dir/flags.make
 framework/CMakeFiles/matrix_utils.dir/scalapack_matrix.cpp.o: ../framework/scalapack_matrix.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object framework/CMakeFiles/matrix_utils.dir/scalapack_matrix.cpp.o"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/matrix_utils.dir/scalapack_matrix.cpp.o -c /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/scalapack_matrix.cpp
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/matrix_utils.dir/scalapack_matrix.cpp.o -c /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/scalapack_matrix.cpp
 
 framework/CMakeFiles/matrix_utils.dir/scalapack_matrix.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/matrix_utils.dir/scalapack_matrix.cpp.i"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/scalapack_matrix.cpp > CMakeFiles/matrix_utils.dir/scalapack_matrix.cpp.i
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/scalapack_matrix.cpp > CMakeFiles/matrix_utils.dir/scalapack_matrix.cpp.i
 
 framework/CMakeFiles/matrix_utils.dir/scalapack_matrix.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/matrix_utils.dir/scalapack_matrix.cpp.s"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/scalapack_matrix.cpp -o CMakeFiles/matrix_utils.dir/scalapack_matrix.cpp.s
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/scalapack_matrix.cpp -o CMakeFiles/matrix_utils.dir/scalapack_matrix.cpp.s
 
 framework/CMakeFiles/matrix_utils.dir/options.cpp.o: framework/CMakeFiles/matrix_utils.dir/flags.make
 framework/CMakeFiles/matrix_utils.dir/options.cpp.o: ../framework/options.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object framework/CMakeFiles/matrix_utils.dir/options.cpp.o"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/matrix_utils.dir/options.cpp.o -c /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/options.cpp
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/matrix_utils.dir/options.cpp.o -c /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/options.cpp
 
 framework/CMakeFiles/matrix_utils.dir/options.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/matrix_utils.dir/options.cpp.i"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/options.cpp > CMakeFiles/matrix_utils.dir/options.cpp.i
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/options.cpp > CMakeFiles/matrix_utils.dir/options.cpp.i
 
 framework/CMakeFiles/matrix_utils.dir/options.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/matrix_utils.dir/options.cpp.s"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/options.cpp -o CMakeFiles/matrix_utils.dir/options.cpp.s
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/options.cpp -o CMakeFiles/matrix_utils.dir/options.cpp.s
 
 framework/CMakeFiles/matrix_utils.dir/option_extern_C_routines.cpp.o: framework/CMakeFiles/matrix_utils.dir/flags.make
 framework/CMakeFiles/matrix_utils.dir/option_extern_C_routines.cpp.o: ../framework/option_extern_C_routines.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object framework/CMakeFiles/matrix_utils.dir/option_extern_C_routines.cpp.o"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/matrix_utils.dir/option_extern_C_routines.cpp.o -c /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/option_extern_C_routines.cpp
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/matrix_utils.dir/option_extern_C_routines.cpp.o -c /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/option_extern_C_routines.cpp
 
 framework/CMakeFiles/matrix_utils.dir/option_extern_C_routines.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/matrix_utils.dir/option_extern_C_routines.cpp.i"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/option_extern_C_routines.cpp > CMakeFiles/matrix_utils.dir/option_extern_C_routines.cpp.i
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/option_extern_C_routines.cpp > CMakeFiles/matrix_utils.dir/option_extern_C_routines.cpp.i
 
 framework/CMakeFiles/matrix_utils.dir/option_extern_C_routines.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/matrix_utils.dir/option_extern_C_routines.cpp.s"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/option_extern_C_routines.cpp -o CMakeFiles/matrix_utils.dir/option_extern_C_routines.cpp.s
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/option_extern_C_routines.cpp -o CMakeFiles/matrix_utils.dir/option_extern_C_routines.cpp.s
 
 framework/CMakeFiles/matrix_utils.dir/option_wrapper_module.F90.o: framework/CMakeFiles/matrix_utils.dir/flags.make
 framework/CMakeFiles/matrix_utils.dir/option_wrapper_module.F90.o: ../framework/option_wrapper_module.F90
@@ -181,15 +181,15 @@ framework/CMakeFiles/matrix_utils.dir/option_wrapper_module.F90.s: cmake_force
 framework/CMakeFiles/matrix_utils.dir/gpr_extern_C_routines.cpp.o: framework/CMakeFiles/matrix_utils.dir/flags.make
 framework/CMakeFiles/matrix_utils.dir/gpr_extern_C_routines.cpp.o: ../framework/gpr_extern_C_routines.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object framework/CMakeFiles/matrix_utils.dir/gpr_extern_C_routines.cpp.o"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/matrix_utils.dir/gpr_extern_C_routines.cpp.o -c /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/gpr_extern_C_routines.cpp
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/matrix_utils.dir/gpr_extern_C_routines.cpp.o -c /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/gpr_extern_C_routines.cpp
 
 framework/CMakeFiles/matrix_utils.dir/gpr_extern_C_routines.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/matrix_utils.dir/gpr_extern_C_routines.cpp.i"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/gpr_extern_C_routines.cpp > CMakeFiles/matrix_utils.dir/gpr_extern_C_routines.cpp.i
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/gpr_extern_C_routines.cpp > CMakeFiles/matrix_utils.dir/gpr_extern_C_routines.cpp.i
 
 framework/CMakeFiles/matrix_utils.dir/gpr_extern_C_routines.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/matrix_utils.dir/gpr_extern_C_routines.cpp.s"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/gpr_extern_C_routines.cpp -o CMakeFiles/matrix_utils.dir/gpr_extern_C_routines.cpp.s
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/framework && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/framework/gpr_extern_C_routines.cpp -o CMakeFiles/matrix_utils.dir/gpr_extern_C_routines.cpp.s
 
 framework/CMakeFiles/matrix_utils.dir/gpr_wrapper_module.F90.o: framework/CMakeFiles/matrix_utils.dir/flags.make
 framework/CMakeFiles/matrix_utils.dir/gpr_wrapper_module.F90.o: ../framework/gpr_wrapper_module.F90

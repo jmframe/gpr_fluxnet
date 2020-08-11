@@ -389,7 +389,7 @@ program run_timestep
        endif
      endif
      ! jmframe July 2020: add in a factor to reduce the correction by some stochastic ammount each time step
-     damp_correction = random_normal(1)
+     damp_correction = random_normal()
      state(t)%smc(1)  = state(t)%smc(1)  + correction(1) * damp_correction
      state(t)%sh2o(1) = state(t)%sh2o(1) + correction(1) * damp_correction !conserve water content fixed frozen content
      correctionz(t) = correction(1)

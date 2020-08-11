@@ -77,15 +77,15 @@ include examples/CMakeFiles/make_predictions_sample.dir/flags.make
 examples/CMakeFiles/make_predictions_sample.dir/make_predictions_sample.cpp.o: examples/CMakeFiles/make_predictions_sample.dir/flags.make
 examples/CMakeFiles/make_predictions_sample.dir/make_predictions_sample.cpp.o: ../examples/make_predictions_sample.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object examples/CMakeFiles/make_predictions_sample.dir/make_predictions_sample.cpp.o"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/examples && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/make_predictions_sample.dir/make_predictions_sample.cpp.o -c /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/examples/make_predictions_sample.cpp
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/examples && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/make_predictions_sample.dir/make_predictions_sample.cpp.o -c /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/examples/make_predictions_sample.cpp
 
 examples/CMakeFiles/make_predictions_sample.dir/make_predictions_sample.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/make_predictions_sample.dir/make_predictions_sample.cpp.i"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/examples && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/examples/make_predictions_sample.cpp > CMakeFiles/make_predictions_sample.dir/make_predictions_sample.cpp.i
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/examples && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/examples/make_predictions_sample.cpp > CMakeFiles/make_predictions_sample.dir/make_predictions_sample.cpp.i
 
 examples/CMakeFiles/make_predictions_sample.dir/make_predictions_sample.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/make_predictions_sample.dir/make_predictions_sample.cpp.s"
-	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/examples && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/examples/make_predictions_sample.cpp -o CMakeFiles/make_predictions_sample.dir/make_predictions_sample.cpp.s
+	cd /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/build/examples && /usr/local/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64/icpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /discover/nobackup/jframe/gpr_fluxnet/soil_moisture/gpr-noah/examples/make_predictions_sample.cpp -o CMakeFiles/make_predictions_sample.dir/make_predictions_sample.cpp.s
 
 # Object files for target make_predictions_sample
 make_predictions_sample_OBJECTS = \
