@@ -100,7 +100,7 @@ for s in range(0, Ns):
     cmd = 'ln -s ../../../data/pals/site_data/forcing_' + S + '.txt ' + wdir + '/forcing.txt'
     os.system(cmd)
     #example: /discover/nobackup/jframe/gpr_fluxnet/data/pals/site_data/obs_1_2003_train.txt
-    cmd = 'ln -s ../../../data/pals/site_data/obs_' +siteyear + '_train.txt ' + wdir + '/obs.txt'
+    cmd = 'ln -s ../../../data/pals/site_data/obs_' + S + '.txt ' + wdir + '/obs_full.txt'
     os.system(cmd)
 
     # site-specific noah-mp input files
@@ -161,6 +161,12 @@ for s in range(0, Ns):
 #    cmd = 'cp setup_dir/save_obs_output_sm.py ' + wdir + '/save_obs_output_sm.py' 
 #    os.system(cmd)
     cmd = 'cp setup_dir/plot_init_sm.py ' + wdir + '/plot_init_sm.py' 
+    os.system(cmd)
+    cmd = 'cp setup_dir/make_obs_da_30day.py ' + wdir + '/make_obs_da_30day.py' 
+    os.system(cmd)
+    cmd = 'cp setup_dir/test_day_start.txt ' + wdir + '/test_day_start.txt' 
+    os.system(cmd)
+    cmd = 'cp setup_dir/save_da_30day_output.py ' + wdir + '/save_da_30day_output.py' 
     os.system(cmd)
 #    cmd = 'cp setup_dir/plot_SM_assimilated.py ' + wdir + '/plot_SM_assimilated.py' 
 #    os.system(cmd)

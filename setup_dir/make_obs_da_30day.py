@@ -24,6 +24,3 @@ with open('obs_full.txt', 'r') as observations_file:
 ## Write out the number of values for the training data. 
 df.to_csv('obs.txt', sep=' ', header=False, index=False, index_label=None)
 
-# Move the test start date one step forward
-with open('test_day_start.txt', 'w+') as f:
-    f.write(str(tds+1))
