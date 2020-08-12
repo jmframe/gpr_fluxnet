@@ -20,11 +20,11 @@ program run_timestep
  
  !file I/O
  integer, parameter :: fid = 15
- character(1000)    :: fname, fdir
+ character(1000)    :: fname, fdir, ofile
  character(1)       :: es1
  character(2)       :: es2
  character(3)       :: es3
- 
+
  !internal indexes
  integer :: s, t, e, ee, l, d, lags
  real    :: dummy
@@ -73,13 +73,13 @@ program run_timestep
 ! --- Set Up Run --------------------------------------------------------
 ! setup simulation
 
- call sim_init(setup,state_tmp,perturb,data_assim,Nt,Ne,sig_sm,Nlag,isOneStep,doEQ,EQs)
+ call sim_init(setup,state_tmp,perturb,data_assim,Nt,Ne,sig_sm,Nlag,isOneStep,doEQ,EQs,ofile)
  allocate(state(Nt,Ne))
  allocate(background(Nt,Ne))
  allocate(setup_tmp(Ne))
  allocate(output(Nt,Ne))
  do e = 1,Ne
-   call sim_init(setup_tmp(e),state(1,e),perturb,data_assim,Nt,Ne,sig_sm,Nlag,isOneStep,doEQ,EQs)
+   call sim_init(setup_tmp(e),state(1,e),perturb,data_assim,Nt,Ne,sig_sm,Nlag,isOneStep,doEQ,EQs,ofile)
    do t = 2,Nt
      allocate(state(t,e)%stc(-setup%nsnow+1:setup%nsoil))
      allocate(state(t,e)%zsnso(-setup%nsnow+1:setup%nsoil))
@@ -511,7 +511,7 @@ program run_timestep
  if (write_model_output) then
 
   ! Write the main output file reguardless of the other options.
-  fname = 'output.out'
+  fname = ofile
   open(fid,file=trim(fname),status='replace')
   do t = 1,Nt
    write(fid,'( i7,i5,f7.3,                                          &
@@ -876,7 +876,7 @@ subroutine redprm(nsoil,tbot,vegtyp)
 
 end subroutine redprm
 
-subroutine sim_init(setup,state,perturb,data_assim,Ntimes,Nens,sig_sm,Nlag,isOneStep,doEQ,EQs)
+subroutine sim_init(setup,state,perturb,data_assim,Ntimes,Nens,sig_sm,Nlag,isOneStep,doEQ,EQs,ofile)
  use type_decs
 
  integer, parameter :: fid = 14
@@ -890,6 +890,7 @@ subroutine sim_init(setup,state,perturb,data_assim,Ntimes,Nens,sig_sm,Nlag,isOne
  integer, intent(out) :: Nlag
  integer :: da_flag 
  integer, intent(out) :: EQs
+ character(24), intent(out) :: ofile
  logical :: fexists
 
 ! simulation setup
@@ -964,21 +965,25 @@ subroutine sim_init(setup,state,perturb,data_assim,Ntimes,Nens,sig_sm,Nlag,isOne
     data_assim = .true.
     isOneStep = .false.
     Nens = da_flag
+    ofile = 'output.da'
    elseif (da_flag.lt.-1) then
     perturb = .true.
     data_assim = .false.
     isOneStep = .false.
     Nens = -da_flag
+    ofile = 'output.perturbed'
    elseif (da_flag.eq.0) then
     perturb = .false.
     data_assim = .false.
     isOneStep = .false.
     Nens = 1
+    ofile = 'output.noah'
    elseif (da_flag.eq.-1) then
     perturb = .false.
     data_assim = .false.
     isOneStep = .true.
     Nens = 1
+    ofile = 'output.onestep'
    else
     stop 9813
    endif
@@ -987,6 +992,7 @@ subroutine sim_init(setup,state,perturb,data_assim,Ntimes,Nens,sig_sm,Nlag,isOne
    data_assim = .false.
    isOneStep = .false.
    Nens = 1
+   ofile = 'output.out'
  endif
 
  open(fid,file='num_times.txt')

@@ -89,7 +89,7 @@ for s in range(0, Ns):
     os.system(cmd);
 
     # generic noah-mp input files
-    cmd = 'cp ./setup_dir/da_flag_cal.txt ' + wdir + '/da_flag.txt'
+    cmd = 'cp ./setup_dir/da_flag_DA.txt ' + wdir + '/da_flag.txt'
     os.system(cmd)
     cmd = 'cp ./setup_dir/init.txt ' + wdir
     os.system(cmd)
@@ -110,7 +110,7 @@ for s in range(0, Ns):
     os.system(cmd) 
 
     # get calibrated parameter VALUES from proc0
-    cmd = 'cp soil_moisture/cal_dirs/run_'+S+'_'+Y+'/proc0/cal_parms.txt soil_moisture/da_dirs/'siteyear+'/cal_parms.txt'
+    cmd = 'cp soil_moisture/cal_dirs/run_'+S+'_'+Y+'/proc0/cal_parms.txt soil_moisture/da_dirs/'+siteyear+'/cal_parms.txt'
     os.system(cmd)
 
     # get site information

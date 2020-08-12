@@ -11,7 +11,7 @@ module load mpi/impi/20.0.0.166
 # linking
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/discover/nobackup/projects/lis/libs/netcdf/4.3.3.1_intel-14.0.3.174_sp3/lib
 
-cd soil_moisture/init_dirs/run_siite_year/
+cd soil_moisture/da_dirs/21_2009/
 
 # This program is part of the initialization process. 
 # To initialize we need to 
@@ -22,20 +22,14 @@ cd soil_moisture/init_dirs/run_siite_year/
 # 4. Run the perturbation simulations for Data Assimilation
 # 5. Run the full data Assimilation
 
-echo 'Initializing siite-year'
-
+echo 0 > da_flag.txt
+echo 'running noah-mp basins for 21-2009'
 ./noah_mp.exe
-
-# Copy output from noah only model
-cp output.out output.noah
 
 # change the DA flag to run a one-step state update simulation.
 echo -1 > da_flag.txt
 echo 'running the one-step state update simulation'
 ./noah_mp.exe
-
-# Copy output from onestep model
-cp output.out output.onestep
 
 # change the DA flag to run a state purturbationsimulation.
 echo -20 > da_flag.txt
@@ -50,9 +44,6 @@ echo 'running the state purturbation simulation'
 echo 20 > da_flag.txt
 echo 'running the full data assimilation simulation'
 ./noah_mp.exe
-
-# Copy output from assimilated model
-cp output.out output.da
 
 # Invert the data transformation, so we can plot the output
 #./rematch_sm_CFD.py # Need to make this file.
