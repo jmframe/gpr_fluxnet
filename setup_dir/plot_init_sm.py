@@ -40,7 +40,7 @@ with open('output.da','r') as csvfile:
     for row in model:
         y_assm.append(float(row[10]))
     simLength = len(y_assm)
-with open('obs.txt','r') as csvfile:
+with open('obs_full.txt','r') as csvfile:
     observations = csv.reader(csvfile, delimiter=' ', skipinitialspace=True )
     for row in observations:
         if count_row < simLength:	
