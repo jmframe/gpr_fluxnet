@@ -1,4 +1,11 @@
 #!/bin/bash -x
+#SBATCH --job-name="da_siite_year"
+#SBATCH --account=s2027
+#SBATCH --time=12:00:00
+#SBATCH --constraint=hasw
+#SBATCH --output="soil_moisture/da_dirs/reports/slurm_output_siite_year_%j.out"
+#SBATCH --error="soil_moisture/da_dirs/reports/slurm_error_sitie_year_%j.out"
+#SBATCH --ntasks=1
 
 # memory
 ulimit -s unlimited
@@ -22,16 +29,16 @@ cd soil_moisture/da_dirs/siite_year/
 # 4. Run the perturbation simulations for Data Assimilation
 # 5. Run the full data Assimilation
 
+echo 0 > test_day_start.txt 
+./make_obs_da_30day.py
+
 echo 0 > da_flag.txt
 echo 'running noah-mp basins for siite-year'
 ./noah_mp.exe
 
 for i in `seq 1 365`
 do
-    # change the DA flag to run a one-step state update simulation.
-    echo -1 > da_flag.txt
-    echo 'running the one-step state update simulation'
-    ./noah_mp.exe
+    make_obs_da_30day.py
     
     # change the DA flag to run a state purturbationsimulation.
     echo -20 > da_flag.txt
@@ -51,9 +58,6 @@ do
     #echo $i > test_day_start.txt 
 
 done
-
-# Collect and create a time series with the date, observed soil moisture and modeled soil moisture
-#./save_obs_output_sm.py
 
 # change the DA flag back to zero
 echo 0 > da_flag.txt

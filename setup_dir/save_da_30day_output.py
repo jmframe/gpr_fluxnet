@@ -24,8 +24,10 @@ with open('obs_full.txt', 'r') as f:
     df.columns = ['year', 'day', 'hour', 'x1', 'x2', 'obs', 'x3', 'x4']
     df3 = df.loc[(df.year == ty) & (df.day >= tds) & (df.day <= tde), ['year','day','hour','obs']]
    
+# Add in the observation data
 df2.insert(4, "obs", df3['obs'])
 
+# Add in the day of forecast, because the evaluation will be based on this.
 days_ahead = []
 for i, row in enumerate(df2.iterrows()):
     days_ahead.append(df2.iloc[i, 1] - tds)

@@ -20,7 +20,7 @@ Ns = sites.shape[0]
 # --- Set Up Runtime Directories ------------------------------------
  
 # open submit script file for writing
-fname = exp_type + '_run_da_jobs.sh'
+fname = exp_type + '_submit_da_jobs.sh'
 
 # Write the bash script header
 with open(fname, 'w') as F:
@@ -30,14 +30,14 @@ with open(fname, 'w') as F:
     for s in range(0,Ns):
  
         # job script file name
-        jname = './job_scripts/da_scripts/' + exp_type + '_da_' + str(int(sites[s,0])) + '_' + str(int(sites[s,1])) + '.sh'
+        jname = 'job_scripts/da_scripts/' + exp_type + '_da_' + str(int(sites[s,0])) + '_' + str(int(sites[s,1])) + '.slurm'
  
         # remove old copy of this job script
         cmd = '/bin/rm -f ' + jname
         os.system(cmd)
  
         # write to job script
-        cmd = 'cp job_scripts/master_da.sh ' + jname
+        cmd = 'cp job_scripts/master_da.slurm ' + jname
         os.system(cmd)
  
         cmd = 'sed -i "s/exp_type/' + exp_type + '/g" ' + jname
@@ -53,6 +53,6 @@ with open(fname, 'w') as F:
         os.system(cmd);
  
         # write to submit script 
-        F.write('\n' + jname)
+        F.write('\n' + 'sbatch ' + jname)
  
  ## --- End Script ---------------------------------------------------

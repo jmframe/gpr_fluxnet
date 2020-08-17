@@ -1,4 +1,11 @@
 #!/bin/bash -x
+#SBATCH --job-name="da_21_2014"
+#SBATCH --account=s2027
+#SBATCH --time=12:00:00
+#SBATCH --constraint=hasw
+#SBATCH --output="soil_moisture/da_dirs/reports/slurm_output_21_2014_%j.out"
+#SBATCH --error="soil_moisture/da_dirs/reports/slurm_error_sitie_2014_%j.out"
+#SBATCH --ntasks=1
 
 # memory
 ulimit -s unlimited
@@ -11,7 +18,7 @@ module load mpi/impi/20.0.0.166
 # linking
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/discover/nobackup/projects/lis/libs/netcdf/4.3.3.1_intel-14.0.3.174_sp3/lib
 
-cd soil_moisture/da_dirs/siite_year/
+cd soil_moisture/da_dirs/21_2014/
 
 # This program is part of the initialization process. 
 # To initialize we need to 
@@ -22,16 +29,16 @@ cd soil_moisture/da_dirs/siite_year/
 # 4. Run the perturbation simulations for Data Assimilation
 # 5. Run the full data Assimilation
 
+echo 0 > test_day_start.txt 
+./make_obs_da_30day.py
+
 echo 0 > da_flag.txt
-echo 'running noah-mp basins for siite-year'
+echo 'running noah-mp basins for 21-2014'
 ./noah_mp.exe
 
 for i in `seq 1 365`
 do
-    # change the DA flag to run a one-step state update simulation.
-    echo -1 > da_flag.txt
-    echo 'running the one-step state update simulation'
-    ./noah_mp.exe
+    make_obs_da_30day.py
     
     # change the DA flag to run a state purturbationsimulation.
     echo -20 > da_flag.txt
@@ -51,9 +58,6 @@ do
     #echo $i > test_day_start.txt 
 
 done
-
-# Collect and create a time series with the date, observed soil moisture and modeled soil moisture
-#./save_obs_output_sm.py
 
 # change the DA flag back to zero
 echo 0 > da_flag.txt
