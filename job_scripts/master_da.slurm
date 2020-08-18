@@ -20,42 +20,45 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/discover/nobackup/projects/lis/libs/net
 
 cd soil_moisture/da_dirs/siite_year/
 
-# This program is part of the initialization process. 
-# To initialize we need to 
-# 1. Run the calibrated parameters
-# 2. Equilibrate (with the calibrated parameters)
-#    i.e., burning in the initial states on a noah-mp run with calibrated parameters
-# 3. Run the one step simulation
-# 4. Run the perturbation simulations for Data Assimilation
-# 5. Run the full data Assimilation
+# This program is for running the data assimilation. 
+# We run for an out of sample year
+# 1. Only run data assimilation for 30 days.
+# 2. Equilibrate each time we start a new set of 30 day 'forecasts'
+# 3. Run the purturbation, then the DA in a loop
+# 4. Save the results of the 30 day predictions after each run
+# 5. Move the starting test date forward each times.
 
 echo 0 > test_day_start.txt 
 ./make_obs_da_30day.py
 
 echo 0 > da_flag.txt
+echo 0 > init_flag.txt # no need to equilibrate during data assimilation
+
 echo 'running noah-mp basins for siite-year'
 ./noah_mp.exe
 
-for i in `seq 1 365`
+for i in `seq 1 335`
 do
-    make_obs_da_30day.py
+    echo $i
     
     # change the DA flag to run a state purturbationsimulation.
-    echo -20 > da_flag.txt
-    echo 0 > init_flag.txt # no need to equilibrate during data assimilation
+    echo -11 > da_flag.txt
     echo 'running the state purturbation simulation'
     ./noah_mp.exe
     
     # change the DA flag to run a state purturbationsimulation.
-    echo 20 > da_flag.txt
+    echo 11 > da_flag.txt
     echo 'running the full data assimilation simulation'
     ./noah_mp.exe
     
     # save the output.
-    ./save_da_30day_output.py
+    ./save_da_30day_output.py da
     
     # Move the forecast day you one
-    #echo $i > test_day_start.txt 
+    echo $i > test_day_start.txt 
+
+    # Make the new observation data file
+    ./make_obs_da_30day.py
 
 done
 
