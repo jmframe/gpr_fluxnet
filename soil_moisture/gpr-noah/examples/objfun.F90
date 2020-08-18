@@ -54,6 +54,7 @@ program run_timestep
  character(20) :: onestepper, onestepout, onestepstates
  ! logic to do ONLY one training or the other
  logical :: isTrain, isTrainDry, isTrainWet
+ logical :: isTest
  ! equilibration
  logical :: doEQ
 ! --- Set Up Run --------------------------------------------------------
@@ -77,7 +78,7 @@ program run_timestep
  call get_command_argument(2, arg)
  if(arg == "0") then
    isCorrect = .false.
- else
+ elseif(arg == "1") then
    isCorrect = .true.
  endif
  
@@ -86,18 +87,27 @@ program run_timestep
    isTrain = .false.
    isTrainDry = .false.
    isTrainWet = .false.
+   isTest = .false.
  elseif(arg == "1") then
    isTrain = .true.
    isTrainDry = .false.
    isTrainWet = .false.
+   isTest = .false.
  elseif(arg == "2") then
    isTrain = .true.
    isTrainDry = .true.
    isTrainWet = .false.
+   isTest = .false.
  elseif(arg == "3") then
    isTrain = .true.
    isTrainDry = .false.
    isTrainWet = .true.
+   isTest = .false.
+ elseif(arg == "-1") then
+   isTrain = .false.
+   isTrainDry = .false.
+   isTrainWet = .false.
+   isTest = .true.
  endif
 
  ! number of times to cycle through initialization 
@@ -284,6 +294,8 @@ program run_timestep
    ! DO the onestep update with OS (either obs or noah+gpr output, assigned above)
    if((isOneStep).and.(obs(t-1).gt.0)) then
      state(t)%smc(1) = OS(t-1)
+   elseif((isTest).and.(obs(t-1).gt.0)) then
+     state(t)%smc(1) = obs(t-1)
    endif
 
    ! Cut state values if outside physical limits

@@ -1,0 +1,280 @@
+program run_timestep
+ use noahmp_veg_parameters
+ use noahmp_globals
+ use type_decs
+
+ use iso_c_binding
+ use gpr_class
+
+! -- Variable Declarations ----------------------------------------------
+ implicit none
+
+ ! simulation parameters
+ integer :: Nt
+ ! Equilibration
+ integer :: EQs, osyear, firstObs, initCycle = 1
+ ! file I/O
+ integer, parameter :: fid = 15
+ character(1000)    :: fname, fdir, sname
+ character(4) :: charyear
+
+ ! internal indexes
+ integer :: s, t, l, d, lags
+ real    :: dummy
+ integer :: vegtyp
+ real    :: rz
+ logical :: fixed, fexists 
+ integer, allocatable, dimension(:,:) :: date
+ real, allocatable, dimension(:) :: time
+
+ ! model data
+ type(forcing_data), allocatable, dimension(:) :: forcing
+ type(state_data),   allocatable, dimension(:) :: state, background
+ type(state_data) :: state_tmp
+ type(setup_data) :: setup
+ type(setup_data),   allocatable, dimension(:)   :: setup_tmp
+ type(output_data),  allocatable, dimension(:) :: output
+
+ ! obs data
+ real, allocatable, dimension(:)   :: obs, obs_full, OS
+
+ !CRAIG 
+ type(gaussian_process_regression) :: dry_gpr, wet_gpr
+ real(kind=8), allocatable :: dinputs(:)
+ real(kind=8), allocatable :: winputs(:)
+ real(kind=8), allocatable :: correction(:)
+ real(kind=8), allocatable, dimension(:) :: correctionz(:)
+ real :: random_normal, noise, meanlag, damp_correction
+ real(kind=8), dimension(3) :: lagged
+
+ ! Add the abilitty to turn on and off the dynamic correction factor
+ logical :: isCorrect
+ ! Need to be able to run the onestep simulation here.
+ logical :: isOneStep
+ character(20) :: onestepper, onestepout, onestepstates
+ ! logic to do ONLY one training or the other
+ logical :: isTrain, isTrainDry, isTrainWet
+ logical :: isTest
+ ! equilibration
+ logical :: doEQ
+! --- Set Up Run --------------------------------------------------------
+
+ character(len=32) :: arg
+ call get_command_argument(1, arg)
+ if(arg == "0") then
+   isOneStep = .false.
+ elseif(arg =="1") then
+   isOneStep = .true.
+   onestepper = "obs.txt"
+   onestepout= "output.onestep"
+   onestepstates = "states.onestep"
+ elseif(arg == "2") then
+   isOneStep = .true.
+   onestepper = "output.dry" 
+   onestepout = "output.drystep"
+   onestepstates = "states.drystep"
+ endif
+ 
+ call get_command_argument(2, arg)
+ if(arg == "0") then
+   isCorrect = .false.
+ elseif(arg == "1") then
+   isCorrect = .true.
+ endif
+ 
+ call get_command_argument(3, arg)
+ if(arg == "0") then
+   isTrain = .false.
+   isTrainDry = .false.
+   isTrainWet = .false.
+   isTest = .false.
+ elseif(arg == "1") then
+   isTrain = .true.
+   isTrainDry = .false.
+   isTrainWet = .false.
+   isTest = .false.
+ elseif(arg == "2") then
+   isTrain = .true.
+   isTrainDry = .true.
+   isTrainWet = .false.
+   isTest = .false.
+ elseif(arg == "3") then
+   isTrain = .true.
+   isTrainDry = .false.
+   isTrainWet = .true.
+   isTest = .false.
+ elseif(arg == "-1") then
+   isTrain = .false.
+   isTrainDry = .false.
+   isTrainWet = .false.
+   isTest = .true.
+ endif
+
+ ! number of times to cycle through initialization 
+ call get_command_argument(4, arg)
+ if(arg == "0") then
+  doEQ = .false.
+ else
+  doEQ = .true.
+  READ(arg,*) EQs
+ endif
+
+! setup simulation 
+ call sim_init(setup,state_tmp,Nt)
+ allocate(state(Nt))
+ allocate(background(Nt))
+ allocate(setup_tmp(1))
+ allocate(output(Nt))
+ call sim_init(setup_tmp(1),state(1),Nt)
+ do t = 2,Nt
+   allocate(state(t)%stc(-setup%nsnow+1:setup%nsoil))
+   allocate(state(t)%zsnso(-setup%nsnow+1:setup%nsoil))
+   allocate(state(t)%tsno(setup%nsnow))
+   allocate(state(t)%snice(setup%nsnow))
+   allocate(state(t)%snliq(setup%nsnow))
+   allocate(state(t)%sh2o(setup%nsoil))
+   allocate(state(t)%smc(setup%nsoil))
+   allocate(background(t)%stc(-setup%nsnow+1:setup%nsoil))
+   allocate(background(t)%zsnso(-setup%nsnow+1:setup%nsoil))
+   allocate(background(t)%tsno(setup%nsnow))
+   allocate(background(t)%snice(setup%nsnow))
+   allocate(background(t)%snliq(setup%nsnow))
+   allocate(background(t)%sh2o(setup%nsoil))
+   allocate(background(t)%smc(setup%nsoil))
+ enddo
+
+ allocate(obs(Nt))
+ obs = -9999.
+ allocate(obs_full(Nt))
+ obs_full = -9999.
+ allocate(OS(Nt))
+ OS = -9999.
+ allocate(correctionz(Nt))
+ correctionz = 0.
+
+ ! We want to know the out-of-sample year
+ ! to set the soil moisture value to observation, during training.
+ open(fid,file='year.txt')
+   read(fid,*) osyear
+ close(fid)
+
+ ! Take out of the data assimilation logic, because we use it for other things. 
+ open(fid,file='obs.txt')
+   do t = 1,Nt
+     ! jmframe: Make sure matches observation file. Added 1 dummy.
+     !Year Day hour   ?     ?     Soil Moisture? Soil Moisture? Precip Rate? 
+     !2002 1   0.000 -0.92 -26.23 0.4086666870   0.4216666794   0.0000559161
+     read(fid,*) dummy,dummy,dummy,dummy,dummy,obs(t),dummy,dummy
+     if ((isOneStep .eqv. .true.) .and. (onestepper .eq. "obs.txt")) then
+       OS(t) = obs(t)
+     endif
+   enddo ! time
+   do t = 1,Nt
+     if (obs(t).gt.0) then
+       firstObs = t
+       exit
+     endif
+   enddo
+ close(fid)
+ if ((isOneStep .eqv. .true.) .and. (onestepper .ne. "obs.txt")) then
+   open(fid,file=onestepper)
+     do t = 1,Nt
+       read(fid,*) dummy,dummy,dummy,                             & ! Date and time
+                   dummy, dummy, dummy, dummy, dummy, dummy,dummy,& ! Forcings 
+                   OS(t),dummy,dummy,dummy,                       & !smc
+                   dummy,dummy,dummy,dummy,                       & !sh2o
+                   dummy, dummy, dummy, dummy, dummy, dummy, dummy  !States and outputs
+     enddo ! time
+   close(fid)
+ endif
+ 
+  ! During training we'll want to set the out-of-sample values to observation.
+  ! Do this in order to have the best initial states before the gpr corrections.
+  if(isTrain) then
+   open(fid,file='obs_full.txt')
+     do t = 1,Nt
+       read(fid,*) dummy,dummy,dummy,dummy,dummy,obs_full(t),dummy,dummy
+     enddo ! time
+  close(fid)
+ endif
+
+ !!!!!!!!!!!!!!         input number of parameters for wet/dry   !!!!!!!!!
+ allocate(winputs(18))
+ allocate(dinputs(17))
+ allocate(correction(1))
+ 
+ ! Read in and load in the Gausian Process Regression.
+ dry_gpr = new_gaussian_process_regression("dry_gpr.dat")
+ wet_gpr = new_gaussian_process_regression("wet_gpr.dat")
+
+! forcing from file
+ allocate(forcing(Nt))
+ allocate(date(Nt,2))
+ allocate(time(Nt))
+ fdir = './forcing'
+
+ ! Load in the forcing data
+ fname = trim(fdir)//'.txt'
+ open(fid,file=trim(fname))
+ do t = 1,Nt
+  ! the humidity here is kg/kg, not % and not relative humidity.
+  read(fid,*) date(t,:),time(t),forcing(t)%sfcspd,dummy,   &
+              forcing(t)%sfctmp,forcing(t)%q2,                 &
+              forcing(t)%sfcprs,forcing(t)%swrad,              &
+              forcing(t)%lwrad,forcing(t)%prcprate
+ enddo ! times
+ close(fid)
+
+ ! prescribed shade fraction
+ forcing%shdfac = -9999.
+ inquire(file='shdfac.txt',exist=fexists)
+ if ((setup%dveg.eq.1).and.(fexists)) then
+  fname = 'shdfac.txt'
+  open(fid,file=trim(fname))
+    do t = 1,Nt
+      read(fid,*) dummy,dummy,dummy,dummy,forcing(t)%shdfac
+    enddo ! times
+  close(fid)
+ endif
+
+! parameters
+! This standalone version does not use the parameter tables.
+! The one place where this may cause a problem is on...
+! line 8866 of module_sf_noahmplsm.f90 where carbon partitioning 
+! to the leaf is different for elbforest than for other vegetation types. 
+! We have set a constant vegetation type so that isurban, 
+! iswater, issnow, and isbaren are not triggered.
+
+ call redprm(setup%nsoil,setup%tbot,vegtyp)
+ setup%vegtyp = vegtyp ! this should !not! be a parameter 
+
+! --- Run the Model -----------------------------------------------------
+! initial timestep
+ t = 1
+
+ ! Call the Noah-MP driver for the initial timestep.
+ call driver(t,setup,forcing(t),state(t),output(t))
+
+ ! Read in the state data after equilibration 
+ if (doEQ .eqv. .false.) then
+   call read_state_data(state(1), 'state.init')
+ endif
+
+ ! Update the state if this is the first observation
+ if (t.eq.firstObs) then
+   do d = 1,4
+     state(t)%smc(d) = obs(t)
+   enddo
+   state(t)%sh2o = state(t)%smc
+ endif
+
+ ! Set initial lagged values to time 1
+ lagged(1)  = state(1)%smc(1)
+ lagged(2)  = state(1)%smc(1)
+ lagged(3)  = state(1)%smc(1)
+
+ ! time loop
+ t=2
+ do while (t.le.Nt)
+
+   ! J

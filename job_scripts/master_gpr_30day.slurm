@@ -1,5 +1,5 @@
 #!/bin/bash -x
-#SBATCH --job-name="da_siite_year"
+#SBATCH --job-name="gp30_siite_year"
 #SBATCH --account=s2027
 #SBATCH --time=12:00:00
 #SBATCH --constraint=hasw
@@ -37,12 +37,12 @@ echo 0 > da_flag.txt
 echo 0 > init_flag.txt # no need to equilibrate when running multiple years ahead
 
 echo 'running noah-mp basins for siite-year'
-./noah_mp.exe 0 1 1 0
+./noah_mp.exe 0 1 -1 0
 
 for i in `seq 1 335`
 do
     echo $i
-    ./noah_mp.exe
+    ./noah_mp.exe 0 1 -1 0
     # save the output.
     ./save_da_30day_output.py gpr
     # Move the forecast day you one
